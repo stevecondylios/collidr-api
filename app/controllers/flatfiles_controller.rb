@@ -19,7 +19,7 @@ class FlatfilesController < ApplicationController
     @flatfile = Flatfile.new(flatfile_params)
 
     if @flatfile.save
-      render json: @flatfile, status: :created, location: @flatfile
+      render json: @flatfile, status: :created # , location: @flatfile # Don't need this location argument, since we don't want to redirect, see here: https://stackoverflow.com/questions/56917332/how-to-stop-redirect-after-post-create-in-rails-api-nomethoderror-undefined-m
       # https://stackoverflow.com/questions/23582389/rails-nomethoderror-undefined-method-url-for-controller-i-cant-seem-to-res
       
     else
