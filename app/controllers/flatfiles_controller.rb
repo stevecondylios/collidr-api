@@ -5,10 +5,13 @@ class FlatfilesController < ApplicationController
   # GET /flatfiles
   def index
     #@flatfiles = Flatfile.all
+    if Key.pluck(:key).include? params[:key]
+      @flatfiles = Flatfile.pluck(:package_names, :function_names)
+      render json: @flatfiles
+    else
+      render json: "Unauthorized"
+    end
 
-    @flatfiles = Flatfile.pluck(:package_names, :function_names)
-
-    render json: @flatfiles
   end
 
   # GET /flatfiles/1
@@ -18,6 +21,9 @@ class FlatfilesController < ApplicationController
 
   # POST /flatfiles
   def create
+
+  if Key.where(role: "admin").pluck(:key).include? params[:key]
+
     @flatfile = Flatfile.new(flatfile_params)
 
     if @flatfile.save
@@ -27,6 +33,11 @@ class FlatfilesController < ApplicationController
     else
       render json: @flatfile.errors, status: :unprocessable_entity
     end
+
+    else 
+    render json: "Unauthorized"
+    end # End key if statement
+
   end
 
   # PATCH/PUT /flatfiles/1
@@ -46,8 +57,12 @@ class FlatfilesController < ApplicationController
 
 # See here: https://stackoverflow.com/questions/56825149/curl-command-to-delete-from-rails-api-based-on-where-predicate
 def custom_destroy
-  @flatfiles = Flatfile.filtered(filter_params)
-  @flatfiles.destroy_all
+  if Key.where(role: "admin").pluck(:key).include? params[:key]
+    @flatfiles = Flatfile.filtered(filter_params)
+    @flatfiles.destroy_all
+  else
+    render json: "Unauthorized"
+  end
 end
 
 

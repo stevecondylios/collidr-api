@@ -23,14 +23,22 @@ curl -X DELETE "http://localhost:3000/flatfiles/slkdfjsdjfk/custom_destroy?packa
 
 # Same but live
 
-
-
 curl "http://www.collidr-api.com/flatfiles/sdfsdf"
-
 
 curl -H "Accept: application/json" -H "Content-type: application/json" -d '{"package_names": "IIII", "function_names": "IIIII"}' "http://www.collidr-api.com/flatfiles/sldkf"
 
-
 curl -X DELETE "http://www.collidr-api.com//flatfiles/slkdfjsdjfk/custom_destroy?package_names=IIII"
+
+
+
+# SecureRandom.urlsafe_base64(16)
+
+# Key.create(name: "EC2", key: "hardcodedkey", role: "admin")
+# Key.create(name: "collidrpackage", key: "hardcodedkey", role: "member")
+
+
+
+
+
 
 
