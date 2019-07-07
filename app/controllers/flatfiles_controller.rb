@@ -4,7 +4,9 @@ class FlatfilesController < ApplicationController
 
   # GET /flatfiles
   def index
-    @flatfiles = Flatfile.all
+    #@flatfiles = Flatfile.all
+
+    @flatfiles = Flatfile.pluck(:package_names, :function_names)
 
     render json: @flatfiles
   end
