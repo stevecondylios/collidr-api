@@ -6,7 +6,7 @@ class FlatfilesController < ApplicationController
   def index
     #@flatfiles = Flatfile.all
     if Key.pluck(:key).include? params[:key]
-      @flatfiles = Flatfile.pluck(:package_names, :function_names)
+      @flatfiles = Flatfile.order(:package_names, :function_names).pluck(:package_names, :function_names)
       render json: @flatfiles
     else
       render json: "Unauthorized"
