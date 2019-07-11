@@ -15,7 +15,7 @@ class FlatfilesController < ApplicationController
   end
 
   def lastupdated
-    @lastupdated = Flatfile.pluck(:updated_at).max
+    @lastupdated = Flatfile.last.updated_at
     render json: @lastupdated
   end
 
