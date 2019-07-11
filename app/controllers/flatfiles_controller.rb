@@ -14,6 +14,11 @@ class FlatfilesController < ApplicationController
 
   end
 
+  def lastupdated
+    @lastupdated = Flatfile.pluck(:updated_at).max
+    render json: @lastupdated
+  end
+
   # GET /flatfiles/1
   # def show
   #   render json: @flatfile

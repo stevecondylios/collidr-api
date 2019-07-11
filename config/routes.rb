@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   # SECTION 3 
   # These three definitely work with the curl commands 
   get 'flatfiles/:key' => 'flatfiles#index'
+  get 'flatfiles/:key/lastupdated' => 'flatfiles#lastupdated'
   post 'flatfiles/:key' => 'flatfiles#create'
   delete 'flatfiles/:key/custom_destroy' => 'flatfiles#custom_destroy'
 
