@@ -38,6 +38,8 @@ curl -X DELETE "http://www.collidr-api.com/flatfiles/slkdfjsdjfk/custom_destroy?
 
 
 
+
+
 curl -H "Accept: application/json" -H "Content-type: application/json" -d '[{"package_names": "Fred", "function_names": "5"}, {"package_names": "Fred", "function_names": "5"}, {"package_names": "Fred", "function_names": "5"}]' "http://www.collidr-api.com/flatfiles/sdfsdf"
 
 
@@ -54,6 +56,8 @@ curl -H "Accept: application/json" -H "Content-type: application/json" -d '[{"pa
 
 
 
+
+# Would love to figure out how to POST multiple records, but can't figure it out just yet
 
 
 curl -H "Accept: application/json" -H "Content-type: application/json" -d '{"package_names": "IIII", "function_names": "IIIII"}' "http://localhost:3000/flatfiles/dfgdfgdfg"
